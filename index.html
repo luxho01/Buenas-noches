@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Un nuevo comienzo</title>
-<style>
-html, body {
-  height: 100%;
-  margin: 0;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  color: #ffffff;
-  background: radial-gradient(circle at top, #d5b4ff, #a46de2);
-  background-image:
-    radial-gradient(white 1px, transparent 1px),
-    radial-gradient(white 1px, transparent 1px);
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
-  animation: fadeIn 2s ease-in;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-  text-shadow: 0 0 8px rgba(255,255,255,0.8);
-}
-p {
-  font-size: 1.2em;
-  margin: 0.4em 0;
-  max-width: 500px;
-  line-height: 1.5;
-}
-.firma {
-  margin-top: 1em;
-  font-style: italic;
-  font-size: 1.1em;
-  opacity: 0.9;
-}
-audio { display: none; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Un nuevo comienzo</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #cdb4db, #bde0fe);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 3s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 2.3em;
+      color: #fff;
+      margin-bottom: 0.5em;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      color: #f8f9fa;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .firma {
+      margin-top: 1.5em;
+      font-style: italic;
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-<h1>Un nuevo comienzo</h1>
-<p><strong>Buenas noches Marycielo</strong></p>
-<p>Hoy diste un gran paso en tu vida.</p>
-<p>Vendrán cosas difíciles, pero yo sé que conseguirás todo lo que te propongas.</p>
-<p>Sigue soñando 🌙</p>
-<p class="firma">— El chico invisible</p>
-
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2023/05/26/audio_5e7d0de2a8.mp3" type="audio/mpeg" />
-</audio>
+  <div class="container">
+    <h1>Un nuevo comienzo</h1>
+    <p>Buenas noches, Marycielo 🌙<br><br>
+    Hoy diste un gran paso en tu vida.<br>
+    Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
+    Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
+    <p class="firma">– El chico invisible ✨</p>
+  </div>
 </body>
 </html>
