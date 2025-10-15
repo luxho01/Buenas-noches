@@ -86,13 +86,8 @@
       100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
     }
 
-    iframe.spotify {
-      margin-top: 20px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 350px;
-      height: 80px;
-      display: none; /* Se mostrará al dar play */
+    audio {
+      display: none; /* Oculta el reproductor nativo */
     }
 
     @keyframes fadeIn {
@@ -110,29 +105,26 @@
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
 
     <!-- Botón Play/Pausa -->
-    <div class="boton-musica" id="playPauseBtn">▶️ Reproducir / Pausar Spotify</div>
+    <div class="boton-musica" id="playPauseBtn">▶️ Reproducir / Pausar música</div>
 
-    <!-- Reproductor Spotify embebido -->
-    <iframe class="spotify" id="spotifyPlayer" src="https://open.spotify.com/embed/track/2p9kUXE4IgrnPjU8u1Of9r?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <!-- Reproductor de audio -->
+    <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
 
     <p class="firma">– El chico invisible ✨</p>
     <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
   </div>
 
   <script>
+    const audio = document.getElementById('musica');
     const btn = document.getElementById('playPauseBtn');
-    const player = document.getElementById('spotifyPlayer');
 
-    let playing = false;
     btn.addEventListener('click', () => {
-      if(!playing){
-        player.style.display = 'block'; // muestra el iframe
-        btn.textContent = '⏸️ Pausar Spotify';
-        playing = true;
+      if(audio.paused){
+        audio.play();
+        btn.textContent = '⏸️ Pausar música';
       } else {
-        player.style.display = 'none'; // oculta el iframe
-        btn.textContent = '▶️ Reproducir Spotify';
-        playing = false;
+        audio.pause();
+        btn.textContent = '▶️ Reproducir música';
       }
     });
   </script>
