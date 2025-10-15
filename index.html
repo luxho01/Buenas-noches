@@ -15,14 +15,14 @@
       font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
-      background: linear-gradient(135deg, #b39ddb, #bde0fe);
+      background: linear-gradient(135deg, #d8b4ff, #cfe0fc);
       animation: fadeBg 15s ease-in-out infinite alternate;
     }
 
     @keyframes fadeBg {
-      0% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
-      50% { background: linear-gradient(135deg, #cdb4db, #a2d2ff); }
-      100% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
+      0% { background: linear-gradient(135deg, #d8b4ff, #cfe0fc); }
+      50% { background: linear-gradient(135deg, #e0c8ff, #d4e3fc); }
+      100% { background: linear-gradient(135deg, #d8b4ff, #cfe0fc); }
     }
 
     /* Estrellas animadas */
@@ -62,41 +62,42 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      max-width: 650px;
+      max-width: 500px; /* más compacto */
+      padding: 20px; /* menos espacio alrededor */
     }
 
     h1, p {
-      font-size: 1.15em;
-      line-height: 1.7em;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+      font-size: 1em;
+      line-height: 1.5em;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
       opacity: 0;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2em; /* un poco más pequeño */
       font-weight: 600;
       margin-bottom: 0.5em;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     }
 
     .firma {
-      margin-top: 1.8em;
+      margin-top: 1.2em;
       font-style: italic;
       opacity: 0.9;
-      font-size: 1.1em;
+      font-size: 1em;
     }
 
     .posdata {
-      margin-top: 1.5em;
-      font-size: 0.95em;
+      margin-top: 1em;
+      font-size: 0.9em;
       opacity: 0.8;
       font-style: italic;
     }
 
     .boton-musica {
       display: inline-block;
-      margin-top: 1.8em;
-      padding: 12px 24px;
+      margin-top: 1.2em;
+      padding: 10px 20px;
       background-color: rgba(255, 255, 255, 0.25);
       color: #fff;
       border-radius: 25px;
@@ -104,7 +105,7 @@
       transition: all 0.3s ease;
       font-weight: 600;
       backdrop-filter: blur(4px);
-      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      box-shadow: 0 0 8px rgba(255,255,255,0.3);
       animation: pulso 3s infinite ease-in-out;
       cursor: pointer;
       z-index: 1;
@@ -113,14 +114,14 @@
 
     .boton-musica:hover {
       background-color: rgba(255, 255, 255, 0.4);
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.6);
     }
 
     @keyframes pulso {
-      0% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-      50% { box-shadow: 0 0 25px rgba(255,255,255,0.7); }
-      100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+      0% { box-shadow: 0 0 8px rgba(255,255,255,0.3); }
+      50% { box-shadow: 0 0 20px rgba(255,255,255,0.7); }
+      100% { box-shadow: 0 0 8px rgba(255,255,255,0.3); }
     }
 
     audio {
@@ -178,10 +179,10 @@
     }
 
     window.onload = () => {
-      typeEffect(document.getElementById('titulo'), 120); // Más rápido para título
+      typeEffect(document.getElementById('titulo'), 120);
       setTimeout(() => {
-        typeEffect(document.getElementById('mensaje'), 20); // Letras más lentas para párrafo
-      }, 1500);
+        typeEffect(document.getElementById('mensaje'), 20);
+      }, 1000);
     };
   </script>
 </body>
