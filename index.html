@@ -15,7 +15,14 @@
       font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
-      background: #1a0033; /* lila noche oscuro */
+      background: linear-gradient(135deg, #b39ddb, #bde0fe);
+      animation: fadeBg 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeBg {
+      0% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
+      50% { background: linear-gradient(135deg, #cdb4db, #a2d2ff); }
+      100% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
     }
 
     /* Estrellas animadas */
@@ -56,19 +63,13 @@
       z-index: 1;
       text-align: center;
       max-width: 650px;
+    }
+
+    h1, p {
+      font-size: 1.15em;
+      line-height: 1.7em;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
       opacity: 0;
-      animation: fadeIn 12s ease forwards, floatText 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes floatText {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
     }
 
     h1 {
@@ -76,12 +77,6 @@
       font-weight: 600;
       margin-bottom: 0.5em;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    }
-
-    p {
-      font-size: 1.15em;
-      line-height: 1.7em;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
     }
 
     .firma {
@@ -136,8 +131,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>Un nuevo comienzo</h1>
-    <p>Buenas noches, Marycielo 🌙<br><br>
+    <h1 id="titulo">Un nuevo comienzo</h1>
+    <p id="mensaje">Buenas noches, Marycielo 🌙<br><br>
     Hoy diste un gran paso en tu vida.<br>
     Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
@@ -159,12 +154,35 @@
     btn.addEventListener('click', () => {
       if(audio.paused){
         audio.play();
-        btn.textContent = '⏸️ Pausa a Morat 😎';
+        btn.textContent = '⏸️ Morat';
       } else {
         audio.pause();
-        btn.textContent = '▶️ Reproduce a Morat';
+        btn.textContent = '▶️ Morat';
       }
     });
+
+    // Animación letra por letra
+    function typeEffect(element, speed) {
+      const text = element.innerHTML;
+      element.innerHTML = '';
+      element.style.opacity = 1;
+      let i = 0;
+      function addLetter() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(addLetter, speed);
+        }
+      }
+      addLetter();
+    }
+
+    window.onload = () => {
+      typeEffect(document.getElementById('titulo'), 120); // Más rápido para título
+      setTimeout(() => {
+        typeEffect(document.getElementById('mensaje'), 20); // Letras más lentas para párrafo
+      }, 1500);
+    };
   </script>
 </body>
 </html>
