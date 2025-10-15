@@ -54,6 +54,41 @@
       font-size: 1.1em;
     }
 
+    .posdata {
+      margin-top: 1.5em;
+      font-size: 0.95em;
+      color: #f3f3f3;
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    .boton-musica {
+      display: inline-block;
+      margin-top: 1.8em;
+      padding: 12px 24px;
+      background-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      animation: pulso 3s infinite ease-in-out;
+    }
+
+    .boton-musica:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    @keyframes pulso {
+      0% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+      50% { box-shadow: 0 0 25px rgba(255,255,255,0.7); }
+      100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    }
+
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(25px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -67,7 +102,11 @@
     Hoy diste un gran paso en tu vida.<br>
     Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
+
+    <a class="boton-musica" href="https://www.youtube.com/watch?v=NGkA6r8s1yE" target="_blank">🎧 Escuchar “Simplemente pasan” – Morat</a>
+
     <p class="firma">– El chico invisible ✨</p>
+    <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
   </div>
 </body>
 </html>
