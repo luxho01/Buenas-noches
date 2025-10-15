@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -35,21 +35,18 @@
       font-size: 2.5em;
       font-weight: 600;
       margin-bottom: 0.5em;
-      color: #ffffff;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     }
 
     p {
       font-size: 1.15em;
       line-height: 1.7em;
-      color: #fefefe;
       text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     }
 
     .firma {
       margin-top: 1.8em;
       font-style: italic;
-      color: #fff;
       opacity: 0.9;
       font-size: 1.1em;
     }
@@ -57,9 +54,13 @@
     .posdata {
       margin-top: 1.5em;
       font-size: 0.95em;
-      color: #f3f3f3;
       opacity: 0.8;
       font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(25px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .boton-musica {
@@ -88,11 +89,6 @@
       50% { box-shadow: 0 0 25px rgba(255,255,255,0.7); }
       100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(25px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
@@ -103,10 +99,15 @@
     Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
 
-    <a class="boton-musica" href="https://www.youtube.com/watch?v=NGkA6r8s1yE" target="_blank">🎧 Escuchar “Simplemente pasan” – Morat</a>
+    <!-- Botón opcional para abrir la canción en YouTube -->
+    <a class="boton-musica" href="https://youtu.be/Zrn3I_LM9xA?si=L4qJNK-fWQ3uPmPA" target="_blank">🎧 Escuchar “Simplemente pasan” – Morat</a>
 
     <p class="firma">– El chico invisible ✨</p>
     <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
   </div>
+
+  <!-- Audio invisible embebido de tu video -->
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/Zrn3I_LM9xA?autoplay=1&loop=1&playlist=Zrn3I_LM9xA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 </body>
 </html>
