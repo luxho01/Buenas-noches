@@ -58,34 +58,6 @@
       font-style: italic;
     }
 
-    .boton-musica {
-      display: inline-block;
-      margin-top: 1.8em;
-      padding: 12px 24px;
-      background-color: rgba(255, 255, 255, 0.25);
-      color: #fff;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 10px rgba(255,255,255,0.3);
-      animation: pulso 3s infinite ease-in-out;
-      cursor: pointer;
-    }
-
-    .boton-musica:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255,255,255,0.6);
-    }
-
-    @keyframes pulso {
-      0% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-      50% { box-shadow: 0 0 25px rgba(255,255,255,0.7); }
-      100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-    }
-
     audio {
       display: none; /* Oculta el reproductor nativo */
     }
@@ -104,28 +76,19 @@
     Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
 
-    <!-- Botón Play/Pausa -->
-    <div class="boton-musica" id="playPauseBtn">▶️ Reproducir / Pausar música</div>
-
     <!-- Reproductor de audio -->
-    <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
+    <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" autoplay loop></audio>
 
     <p class="firma">– El chico invisible ✨</p>
     <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
   </div>
 
   <script>
+    // Intentar reproducir automáticamente
     const audio = document.getElementById('musica');
-    const btn = document.getElementById('playPauseBtn');
-
-    btn.addEventListener('click', () => {
-      if(audio.paused){
-        audio.play();
-        btn.textContent = '⏸️ Pausar música';
-      } else {
-        audio.pause();
-        btn.textContent = '▶️ Reproducir música';
-      }
+    audio.play().catch(() => {
+      // Si el autoplay es bloqueado, pide interacción
+      document.body.addEventListener('click', () => audio.play());
     });
   </script>
 </body>
