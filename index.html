@@ -15,34 +15,73 @@
       font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
-      background: linear-gradient(135deg, #4b0082, #6a0dad);
-      animation: fadeBg 15s ease-in-out infinite alternate;
+      background: #1a0033; /* lila noche oscuro */
     }
 
-    @keyframes fadeBg {
-      0% { background: linear-gradient(135deg, #4b0082, #6a0dad); }
-      50% { background: linear-gradient(135deg, #360061, #4e0a6b); }
-      100% { background: linear-gradient(135deg, #4b0082, #6a0dad); }
+    /* Estrellas animadas */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: transparent;
+      box-shadow: 
+        10vw 20vh #fff,
+        20vw 30vh #fff,
+        30vw 50vh #fff,
+        40vw 10vh #fff,
+        50vw 70vh #fff,
+        60vw 40vh #fff,
+        70vw 80vh #fff,
+        80vw 60vh #fff,
+        90vw 20vh #fff,
+        25vw 85vh #fff,
+        35vw 25vh #fff,
+        45vw 55vh #fff,
+        55vw 35vh #fff,
+        65vw 65vh #fff,
+        75vw 15vh #fff,
+        85vw 75vh #fff;
+      animation: twinkle 12s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { transform: translate(0,0); opacity: 0.8; }
+      50% { transform: translate(1vw,1vh); opacity: 0.3; }
     }
 
     .container {
+      position: relative;
+      z-index: 1;
       text-align: center;
       max-width: 650px;
       opacity: 0;
-      animation: fadeIn 6s ease forwards;
+      animation: fadeIn 12s ease forwards, floatText 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatText {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
 
     h1 {
       font-size: 2.5em;
       font-weight: 600;
       margin-bottom: 0.5em;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 
     p {
       font-size: 1.15em;
       line-height: 1.7em;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
     }
 
     .firma {
@@ -73,6 +112,8 @@
       box-shadow: 0 0 10px rgba(255,255,255,0.3);
       animation: pulso 3s infinite ease-in-out;
       cursor: pointer;
+      z-index: 1;
+      position: relative;
     }
 
     .boton-musica:hover {
@@ -91,10 +132,6 @@
       display: none;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(25px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
@@ -122,10 +159,10 @@
     btn.addEventListener('click', () => {
       if(audio.paused){
         audio.play();
-        btn.textContent = '⏸️ Morat';
+        btn.textContent = '⏸️ Pausa a Morat 😎';
       } else {
         audio.pause();
-        btn.textContent = '▶️ Morat';
+        btn.textContent = '▶️ Reproduce a Morat';
       }
     });
   </script>
