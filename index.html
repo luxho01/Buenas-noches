@@ -1,189 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Un nuevo comienzo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Quicksand', sans-serif;
-      color: white;
-      overflow: hidden;
-      background: linear-gradient(135deg, #d8b4ff, #cfe0fc);
-      animation: fadeBg 15s ease-in-out infinite alternate;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Un nuevo comienzo</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(135deg, #d8b4ff, #cfe0fc);
+    animation: fadeBg 15s ease-in-out infinite alternate;
+  }
+  @keyframes fadeBg {
+    0% { background: linear-gradient(135deg, #d8b4ff, #cfe0fc); }
+    50% { background: linear-gradient(135deg, #e0c8ff, #d4e3fc); }
+    100% { background: linear-gradient(135deg, #d8b4ff, #cfe0fc); }
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    box-shadow: 
+      10vw 20vh #fff, 20vw 30vh #fff, 30vw 50vh #fff, 40vw 10vh #fff,
+      50vw 70vh #fff, 60vw 40vh #fff, 70vw 80vh #fff, 80vw 60vh #fff,
+      90vw 20vh #fff, 25vw 85vh #fff, 35vw 25vh #fff, 45vw 55vh #fff,
+      55vw 35vh #fff, 65vw 65vh #fff, 75vw 15vh #fff, 85vw 75vh #fff;
+    animation: twinkle 12s linear infinite;
+    z-index: 0;
+  }
+  @keyframes twinkle { 0%,100%{transform:translate(0,0);opacity:0.8;}50%{transform:translate(1vw,1vh);opacity:0.3;} }
 
-    @keyframes fadeBg {
-      0% { background: linear-gradient(135deg, #d8b4ff, #cfe0fc); }
-      50% { background: linear-gradient(135deg, #e0c8ff, #d4e3fc); }
-      100% { background: linear-gradient(135deg, #d8b4ff, #cfe0fc); }
-    }
+  .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 500px;
+    padding: 20px;
+  }
 
-    /* Estrellas animadas */
-    body::before {
-      content: '';
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: transparent;
-      box-shadow: 
-        10vw 20vh #fff,
-        20vw 30vh #fff,
-        30vw 50vh #fff,
-        40vw 10vh #fff,
-        50vw 70vh #fff,
-        60vw 40vh #fff,
-        70vw 80vh #fff,
-        80vw 60vh #fff,
-        90vw 20vh #fff,
-        25vw 85vh #fff,
-        35vw 25vh #fff,
-        45vw 55vh #fff,
-        55vw 35vh #fff,
-        65vw 65vh #fff,
-        75vw 15vh #fff,
-        85vw 75vh #fff;
-      animation: twinkle 12s linear infinite;
-      z-index: 0;
-    }
+  h1, p {
+    font-size: 1em;
+    line-height: 1.5em;
+    text-shadow: 0 0 6px rgba(255,255,255,0.4);
+    opacity: 0;
+  }
+  h1 { font-size: 2em; font-weight: 600; margin-bottom: 0.5em; text-shadow: 0 0 15px rgba(255,255,255,0.6);}
+  .firma { margin-top: 1.2em; font-style: italic; opacity:0.9; font-size:1em;}
+  .posdata { margin-top:1em; font-size:0.9em; opacity:0.8; font-style: italic; }
 
-    @keyframes twinkle {
-      0%, 100% { transform: translate(0,0); opacity: 0.8; }
-      50% { transform: translate(1vw,1vh); opacity: 0.3; }
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 500px; /* más compacto */
-      padding: 20px; /* menos espacio alrededor */
-    }
-
-    h1, p {
-      font-size: 1em;
-      line-height: 1.5em;
-      text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
-      opacity: 0;
-    }
-
-    h1 {
-      font-size: 2em; /* un poco más pequeño */
-      font-weight: 600;
-      margin-bottom: 0.5em;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-    }
-
-    .firma {
-      margin-top: 1.2em;
-      font-style: italic;
-      opacity: 0.9;
-      font-size: 1em;
-    }
-
-    .posdata {
-      margin-top: 1em;
-      font-size: 0.9em;
-      opacity: 0.8;
-      font-style: italic;
-    }
-
-    .boton-musica {
-      display: inline-block;
-      margin-top: 1.2em;
-      padding: 10px 20px;
-      background-color: rgba(255, 255, 255, 0.25);
-      color: #fff;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 8px rgba(255,255,255,0.3);
-      animation: pulso 3s infinite ease-in-out;
-      cursor: pointer;
-      z-index: 1;
-      position: relative;
-    }
-
-    .boton-musica:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(255,255,255,0.6);
-    }
-
-    @keyframes pulso {
-      0% { box-shadow: 0 0 8px rgba(255,255,255,0.3); }
-      50% { box-shadow: 0 0 20px rgba(255,255,255,0.7); }
-      100% { box-shadow: 0 0 8px rgba(255,255,255,0.3); }
-    }
-
-    audio {
-      display: none;
-    }
-
-  </style>
+  .boton-musica {
+    display: inline-block;
+    margin-top: 1.2em;
+    padding: 10px 20px;
+    background-color: rgba(255,255,255,0.25);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    box-shadow:0 0 8px rgba(255,255,255,0.3);
+    animation: pulso 3s infinite ease-in-out;
+    cursor:pointer;
+    z-index:1;
+    position: relative;
+  }
+  .boton-musica:hover{ background-color: rgba(255,255,255,0.4); transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.6); }
+  @keyframes pulso {0%{box-shadow:0 0 8px rgba(255,255,255,0.3);}50%{box-shadow:0 0 20px rgba(255,255,255,0.7);}100%{box-shadow:0 0 8px rgba(255,255,255,0.3);}}
+  audio{display:none;}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1 id="titulo">Un nuevo comienzo</h1>
-    <p id="mensaje">Buenas noches, Marycielo<br>
-    Hoy diste un gran paso en tu vida.
-    Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br>
-    Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
+<div class="container">
+  <h1 id="titulo">Un nuevo comienzo</h1>
+  <p id="mensaje">Buenas noches, Marycielo 🌙<br><br>
+  Hoy diste un gran paso en tu vida.<br>
+  Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
+  Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
 
-    <!-- Botón Play/Pausa -->
-    <div class="boton-musica" id="playPauseBtn">▶️ Morat</div>
+  <div class="boton-musica" id="playPauseBtn">▶️ Morat</div>
+  <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
 
-    <!-- Reproductor de audio -->
-    <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
+  <p class="firma">– El chico invisible ✨</p>
+  <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
+</div>
 
-    <p class="firma">– El chico invisible ✨</p>
-    <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
-  </div>
+<script>
+const audio = document.getElementById('musica');
+const btn = document.getElementById('playPauseBtn');
 
-  <script>
-    const audio = document.getElementById('musica');
-    const btn = document.getElementById('playPauseBtn');
+btn.addEventListener('click', ()=>{
+  if(audio.paused){
+    audio.play();
+    btn.textContent = '⏸️ Morat';
+  } else {
+    audio.pause();
+    btn.textContent = '▶️ Morat';
+  }
+});
 
-    btn.addEventListener('click', () => {
-      if(audio.paused){
-        audio.play();
-        btn.textContent = '⏸️ Morat';
+// Animación letra por letra manteniendo etiquetas HTML
+function typeEffectHTML(element, speed){
+  const text = element.innerHTML;
+  element.innerHTML = '';
+  element.style.opacity = 1;
+  let i=0;
+  function addChar(){
+    if(i<text.length){
+      if(text[i]==='<'){
+        // Copiar etiqueta completa
+        let end = text.indexOf('>',i);
+        element.innerHTML += text.slice(i,end+1);
+        i = end+1;
       } else {
-        audio.pause();
-        btn.textContent = '▶️ Morat';
+        element.innerHTML += text[i];
+        i++;
       }
-    });
-
-    // Animación letra por letra
-    function typeEffect(element, speed) {
-      const text = element.innerHTML;
-      element.innerHTML = '';
-      element.style.opacity = 1;
-      let i = 0;
-      function addLetter() {
-        if (i < text.length) {
-          element.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(addLetter, speed);
-        }
-      }
-      addLetter();
+      setTimeout(addChar,speed);
     }
+  }
+  addChar();
+}
 
-    window.onload = () => {
-      typeEffect(document.getElementById('titulo'), 120);
-      setTimeout(() => {
-        typeEffect(document.getElementById('mensaje'), 20);
-      }, 1000);
-    };
-  </script>
+window.onload = ()=>{
+  typeEffectHTML(document.getElementById('titulo'),120);
+  setTimeout(()=>{ typeEffectHTML(document.getElementById('mensaje'),20); },1500);
+};
+</script>
 </body>
 </html>
