@@ -12,41 +12,30 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(135deg, #b39ddb, #bde0fe);
       font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(179,157,219,0.6), rgba(189,224,254,0.6)),
-                  url('fondo-nocturno.jpg') no-repeat center center fixed;
-      background-size: cover;
+      animation: fadeBg 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeBg {
+      0% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
+      100% { background: linear-gradient(135deg, #cdb4db, #a2d2ff); }
     }
 
     .container {
       text-align: center;
       max-width: 650px;
-      background-color: rgba(0,0,0,0.25);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      animation: fadeIn 3s ease forwards, floatText 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(25px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes floatText {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0px); }
+      opacity: 0;
+      animation: fadeIn 6s ease forwards;
     }
 
     h1 {
       font-size: 2.5em;
       font-weight: 600;
       margin-bottom: 0.5em;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     }
 
     p {
@@ -70,9 +59,8 @@
     }
 
     .boton-musica {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+      display: inline-block;
+      margin-top: 1.8em;
       padding: 12px 24px;
       background-color: rgba(255, 255, 255, 0.25);
       color: #fff;
@@ -99,7 +87,12 @@
     }
 
     audio {
-      display: none;
+      display: none; /* Oculta el reproductor nativo */
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(25px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -111,29 +104,20 @@
     Vendrán cosas difíciles, pero sé que conseguirás todo lo que te propongas.<br><br>
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
 
+    <!-- Botón Play/Pausa -->
+    <div class="boton-musica" id="playPauseBtn">▶️ Reproducir / Pausar música</div>
+
+    <!-- Reproductor de audio -->
+    <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
+
     <p class="firma">– El chico invisible ✨</p>
     <p class="posdata">P.D.: Por esto no fui a dormir, ya me estaba olvidando de cómo hacer estas cosas jzjzjz 😅</p>
   </div>
-
-  <!-- Botón Play/Pausa -->
-  <div class="boton-musica" id="playPauseBtn">▶️ Reproducir / Pausar música</div>
-
-  <!-- Reproductor de audio -->
-  <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
 
   <script>
     const audio = document.getElementById('musica');
     const btn = document.getElementById('playPauseBtn');
 
-    // Intentar autoplay al cargar la página
-    window.addEventListener('load', () => {
-      audio.play().catch(() => {
-        // Si el autoplay es bloqueado, esperar primer clic
-        document.body.addEventListener('click', () => audio.play(), { once: true });
-      });
-    });
-
-    // Botón Play/Pausa funcional
     btn.addEventListener('click', () => {
       if(audio.paused){
         audio.play();
