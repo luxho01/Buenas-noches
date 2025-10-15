@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Un nuevo comienzo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -11,42 +12,50 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #cdb4db, #bde0fe);
-      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #b39ddb, #bde0fe);
+      font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
+      animation: fadeBg 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeBg {
+      0% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
+      100% { background: linear-gradient(135deg, #cdb4db, #a2d2ff); }
     }
 
     .container {
       text-align: center;
-      max-width: 600px;
-      animation: fadeIn 3s ease-in-out forwards;
+      max-width: 650px;
       opacity: 0;
+      animation: fadeIn 6s ease forwards;
     }
 
     h1 {
-      font-size: 2.3em;
-      color: #fff;
+      font-size: 2.5em;
+      font-weight: 600;
       margin-bottom: 0.5em;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     }
 
     p {
-      font-size: 1.1em;
-      line-height: 1.6em;
-      color: #f8f9fa;
+      font-size: 1.15em;
+      line-height: 1.7em;
+      color: #fefefe;
       text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     }
 
     .firma {
-      margin-top: 1.5em;
+      margin-top: 1.8em;
       font-style: italic;
       color: #fff;
       opacity: 0.9;
+      font-size: 1.1em;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
+      0% { opacity: 0; transform: translateY(25px); }
       100% { opacity: 1; transform: translateY(0); }
     }
   </style>
