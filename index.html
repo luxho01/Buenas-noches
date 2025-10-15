@@ -12,16 +12,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #b39ddb, #bde0fe);
       font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
+      background: linear-gradient(135deg, #4b0082, #6a0dad);
       animation: fadeBg 15s ease-in-out infinite alternate;
     }
 
     @keyframes fadeBg {
-      0% { background: linear-gradient(135deg, #b39ddb, #bde0fe); }
-      100% { background: linear-gradient(135deg, #cdb4db, #a2d2ff); }
+      0% { background: linear-gradient(135deg, #4b0082, #6a0dad); }
+      50% { background: linear-gradient(135deg, #360061, #4e0a6b); }
+      100% { background: linear-gradient(135deg, #4b0082, #6a0dad); }
     }
 
     .container {
@@ -87,7 +88,7 @@
     }
 
     audio {
-      display: none; /* Oculta el reproductor nativo */
+      display: none;
     }
 
     @keyframes fadeIn {
@@ -105,7 +106,7 @@
     Sigue soñando, que los sueños grandes comienzan con pequeños pasos. 💜</p>
 
     <!-- Botón Play/Pausa -->
-    <div class="boton-musica" id="playPauseBtn">▶️ Reproducir / Pausar música</div>
+    <div class="boton-musica" id="playPauseBtn">▶️ Morat</div>
 
     <!-- Reproductor de audio -->
     <audio id="musica" src="Morat, Cami - Simplemente Pasan.mp3" loop></audio>
@@ -121,10 +122,10 @@
     btn.addEventListener('click', () => {
       if(audio.paused){
         audio.play();
-        btn.textContent = '⏸️ Pausar música';
+        btn.textContent = '⏸️ Morat';
       } else {
         audio.pause();
-        btn.textContent = '▶️ Reproducir música';
+        btn.textContent = '▶️ Morat';
       }
     });
   </script>
